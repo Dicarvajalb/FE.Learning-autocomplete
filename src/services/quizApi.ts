@@ -13,7 +13,7 @@ import type {
   SubmitQuizSessionAnswerInput,
 } from '../types';
 
-const API_BASE_URL = 'https://be-leaning-autocomplete.onrender.com';
+const API_BASE_URL = 'https://be-leaning-autocomplete.vercel.app';
 
 export class ApiError extends Error {
   constructor(
