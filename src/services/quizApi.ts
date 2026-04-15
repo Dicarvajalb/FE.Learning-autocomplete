@@ -13,10 +13,7 @@ import type {
   SubmitQuizSessionAnswerInput,
 } from '../types';
 
-const API_BASE_URL =
-  Platform.OS === 'android'
-    ? 'http://10.0.2.2:3001'
-    : 'http://localhost:3001';
+const API_BASE_URL = 'https://be-leaning-autocomplete.onrender.com';
 
 export class ApiError extends Error {
   constructor(
@@ -173,12 +170,9 @@ export function updateQuestion(
 }
 
 export function deleteQuestion(quizId: string, questionId: string) {
-  return requestJson<void>(
-    `/admin/quizzes/${quizId}/questions/${questionId}`,
-    {
-      method: 'DELETE',
-    },
-  );
+  return requestJson<void>(`/admin/quizzes/${quizId}/questions/${questionId}`, {
+    method: 'DELETE',
+  });
 }
 
 export function createQuizSession(
@@ -216,7 +210,5 @@ export function submitQuizSessionAnswer(
 }
 
 export function getQuizSessionResult(sessionId: string) {
-  return requestJson<QuizSessionResult>(
-    `/quiz-sessions/${sessionId}/result`,
-  );
+  return requestJson<QuizSessionResult>(`/quiz-sessions/${sessionId}/result`);
 }
